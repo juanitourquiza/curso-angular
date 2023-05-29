@@ -1,0 +1,61 @@
+.navbar-nav.ml-auto {
+  margin-left: auto;
+}
+
+.text-search {
+  width: 350px;
+}
+
+.custom-container {
+  margin-bottom: 60px;
+}
+
+.title {
+  color: #fff;
+  font-weight: 600;
+  font-size: 64px;
+}
+
+.sub-title {
+  color: #8e95a9;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.menu {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.space-menu {
+  padding-right: 40px;
+}
+
+.option-all {
+  color: #767e94;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.option-numbers {
+  color: #767e94;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.options {
+  color: #8e95a9;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.card {
+  background-color: #20283E;
+}
+
+.card-text {
+  color: #EBEEF5;
+  font-size: 16px;
+  font-weight: 600;
+}
