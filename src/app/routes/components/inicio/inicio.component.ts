@@ -7,7 +7,6 @@ import { MoviesSeries } from 'src/app/types/moviesSeries';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent {
-  //textoEnPadre = 'Esto es un texto desde el componente padre';
   moviesSerie: MoviesSeries [] = [
     {
       id: 1,
@@ -74,4 +73,11 @@ export class InicioComponent {
       category: 'Movie',
     }
   ];
+
+  filter: 'Todos' | 'Peliculas' | 'Series' = 'Todos';
+
+  changeFilter = (filtro: 'Todos' | 'Peliculas' | 'Series')=> {
+    //console.log ('io', filtro);
+    this.filter = filtro;
+  }
 }

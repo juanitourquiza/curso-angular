@@ -11,13 +11,22 @@
     <div class="container mt-5 mb-3">
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Todos</a>
+          <a
+            class="btn btn-primary"
+            [ngClass]="filter === 'Todos' ? 'btn-selected' : 'options'"
+            (click)="changeFilter('Todos')">Todos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link options" href="#">Peliculas</a>
+          <a
+            class="btn btn-primary"
+            [ngClass]="filter === 'Peliculas' ? 'btn-selected' : 'options'"
+            (click)="changeFilter('Peliculas')">Peliculas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link options" href="#">Series</a>
+          <a
+            class="btn btn-primary"
+            [ngClass]="filter === 'Series' ? 'btn-selected' : 'options'"
+            (click)="changeFilter('Series')">Series</a>
         </li>
       </ul>
     </div>
