@@ -19,20 +19,24 @@
         <li class="nav-item">
           <a
             class="btn btn-primary"
-            [ngClass]="filter === 'Peliculas' ? 'btn-selected' : 'options'"
-            (click)="changeFilter('Peliculas')">Peliculas</a>
+            [ngClass]="filter === 'Movie' ? 'btn-selected' : 'options'"
+            (click)="changeFilter('Movie')">Peliculas</a>
         </li>
         <li class="nav-item">
           <a
             class="btn btn-primary"
-            [ngClass]="filter === 'Series' ? 'btn-selected' : 'options'"
-            (click)="changeFilter('Series')">Series</a>
+            [ngClass]="filter === 'Serie' ? 'btn-selected' : 'options'"
+            (click)="changeFilter('Serie')">Series</a>
         </li>
       </ul>
     </div>
     <div class="container custom-container">
       <span class="option-all">Todos</span>
       <span class="option-numbers"> (120)</span>
-          <app-movie-card [data]="moviesSerie"></app-movie-card>
+          <app-movie-card
+            [data]="moviesSerie"
+            [filter]="filter"
+            >
+        </app-movie-card>
     </div>
   </div>

@@ -74,10 +74,9 @@ export class InicioComponent {
     }
   ];
 
-  filter: 'Todos' | 'Peliculas' | 'Series' = 'Todos';
+  filter: 'Todos' | 'Movie' | 'Serie' = 'Todos';
 
-  changeFilter = (filtro: 'Todos' | 'Peliculas' | 'Series')=> {
-    //console.log ('io', filtro);
+  changeFilter = (filtro: 'Todos' | 'Movie' | 'Serie')=> {
     this.filter = filtro;
   }
 }

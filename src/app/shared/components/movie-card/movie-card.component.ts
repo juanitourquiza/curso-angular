@@ -8,4 +8,5 @@ import { MoviesSeries } from 'src/app/types/moviesSeries';
 })
 export class MovieCardComponent {
   @Input() data: MoviesSeries [] | undefined;
+  @Input() filter: string | undefined;
 }
