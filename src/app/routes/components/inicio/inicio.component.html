@@ -10,6 +10,9 @@
         type="search"
         placeholder="Buscar peliculas y series"
         aria-label="Search"
+        name="toSearch"
+        [(ngModel)]="toSearch"
+        (ngModelChange)="search(toSearch)"
       />
     </form>
   </div>
@@ -44,6 +47,6 @@
   <div class="container custom-container">
     <span class="option-all">Todos</span>
     <span class="option-numbers"> (120)</span>
-    <app-movie-card [data]="moviesSerie" [filter]="filter"> </app-movie-card>
+    <app-movie-card [data]="movieResult" [filter]="filter"> </app-movie-card>
   </div>
 </div>
