@@ -19,9 +19,18 @@ export class InicioComponent {
 
   changeFilter = (filtro: 'Todos' | 'Movie' | 'Serie') => {
     this.filter = filtro;
+    if (filtro === 'Todos' && this.movieResult.length ===0){
+      this.getAllTrending();
+    }
+    if (filtro === 'Movie' && this.movies.length ===0){
+      this.getAllMovies();
+    }
+    if (filtro === 'Serie' && this.series.length ===0){
+      this.getAllTvShows();
+    }
   };
-  movies: any;
-  series: any;
+  movies: any[]=[];
+  series: any[]=[];
 
   constructor(
     private _movieDBService: MovieDBService
@@ -29,8 +38,6 @@ export class InicioComponent {
 
   ngOnInit(){
     this.getAllTrending();
-    this.getAllMovies();
-    this.getAllTvShows();
   }
 
   getAllTrending(){
