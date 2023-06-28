@@ -1,8 +1,9 @@
 export interface MoviesSeries {
   id: number;
   name: string;
-  description: string;
-  image: string;
-  rating: string;
+  overview: string;
+  poster_path: string;
+  vote_average: number;
   category: 'Movie' | 'Serie';
+  title: string;
 }

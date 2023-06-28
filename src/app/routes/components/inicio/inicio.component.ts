@@ -1,96 +1,17 @@
 import { Component } from '@angular/core';
+import { MovieDBService } from 'src/app/services/movie-db.service';
 import { MoviesSeries } from 'src/app/types/moviesSeries';
 
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css'],
+  providers: [ MovieDBService]
 })
 export class InicioComponent {
-  moviesSerie: MoviesSeries[] = [
-    {
-      id: 1,
-      name: 'The Flash',
-      description:
-        'When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to.',
-      image:
-        'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg',
-      rating: '74%',
-      category: 'Movie',
-    },
-    {
-      id: 2,
-      name: 'Black Mirror',
-      description:
-        'A contemporary British re-working of The Twilight Zone with stories that tap into the collective unease about our modern world.',
-      image:
-        'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/5UaYsGZOFhjFDwQh6GuLjjA1WlF.jpg',
-      rating: '83%',
-      category: 'Serie',
-    },
-    {
-      id: 3,
-      name: 'Spider-Man',
-      description:
-        'After reuniting with Gwen Stacy, Brooklyn’s full-time, friendly neighborhood Spider-Man is catapulted across the Multiverse',
-      image:
-        'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg',
-      rating: '87%',
-      category: 'Movie',
-    },
-    {
-      id: 4,
-      name: 'South Park',
-      description:
-        'Follows the misadventures of four irreverent grade-schoolers in the quiet, dysfunctional town of South Park, Colorado.',
-      image:
-        'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/iiCY2QIGSnmtVkIdjkKAfwDs0KF.jpg',
-      rating: '84%',
-      category: 'Serie',
-    },
-    {
-      id: 5,
-      name: 'South Park',
-      description:
-        'Follows the misadventures of four irreverent grade-schoolers in the quiet, dysfunctional town of South Park, Colorado.',
-      image:
-        'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/iiCY2QIGSnmtVkIdjkKAfwDs0KF.jpg',
-      rating: '84%',
-      category: 'Serie',
-    },
-    {
-      id: 6,
-      name: 'Spider-Man',
-      description:
-        'After reuniting with Gwen Stacy, Brooklyn’s full-time, friendly neighborhood Spider-Man is catapulted across the Multiverse',
-      image:
-        'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg',
-      rating: '87%',
-      category: 'Movie',
-    },
-    {
-      id: 7,
-      name: 'Black Mirror',
-      description:
-        'A contemporary British re-working of The Twilight Zone with stories that tap into the collective unease about our modern world.',
-      image:
-        'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/5UaYsGZOFhjFDwQh6GuLjjA1WlF.jpg',
-      rating: '83%',
-      category: 'Serie',
-    },
-    {
-      id: 8,
-      name: 'The Flash',
-      description:
-        'When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to.',
-      image:
-        'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg',
-      rating: '74%',
-      category: 'Movie',
-    },
-  ];
+  moviesSerie: MoviesSeries[] = [];
 
-  movieResult: MoviesSeries[] = this.moviesSerie;
+  movieResult: MoviesSeries[] = [];
 
   toSearch: string = '';
 
@@ -99,6 +20,62 @@ export class InicioComponent {
   changeFilter = (filtro: 'Todos' | 'Movie' | 'Serie') => {
     this.filter = filtro;
   };
+  movies: any;
+  series: any;
+
+  constructor(
+    private _movieDBService: MovieDBService
+  ){}
+
+  ngOnInit(){
+    this.getAllTrending();
+    this.getAllMovies();
+    this.getAllTvShows();
+  }
+
+  getAllTrending(){
+    this._movieDBService.getTrending().subscribe({
+      next: (response) => {
+        console.log ('Esta todo bien', response);
+        this.moviesSerie = response.results;
+        this.movieResult = this.moviesSerie;
+      },
+      error: (error) => {
+        console.log ('Error', error);
+      },
+      complete() {
+        console.log ('Finalizo');
+      },
+    })
+  }
+  getAllMovies(){
+    this._movieDBService.getMovies().subscribe({
+      next: (response) => {
+        console.log ('Esta todo bien', response);
+        this.movies = response.results;
+      },
+      error: (error) => {
+        console.log ('Error', error);
+      },
+      complete() {
+        console.log ('Finalizo');
+      },
+    })
+  }
+  getAllTvShows(){
+    this._movieDBService.getSeries().subscribe({
+      next: (response) => {
+        console.log ('Esta todo bien', response);
+        this.series = response.results;
+      },
+      error: (error) => {
+        console.log ('Error', error);
+      },
+      complete() {
+        console.log ('Finalizo');
+      },
+    })
+  }
 
   search(value: string) {
     this.movieResult = [];

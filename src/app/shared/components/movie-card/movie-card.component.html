@@ -1,31 +1,49 @@
 <div class="row">
     <ng-container *ngFor="let item of data">
-      <ng-container *ngIf="item.category === filter">
-        <div class="col-md-4 m-2" style="width: 18rem">
-          <div class="card">
-            <div class="card-body">
-                <img src="{{ item.image }}" class="card-img-top" [alt]="item.name" />
-                {{ item.name }}
-                <h2 class="title">{{ item.name }}</h2>
-                <p class="card-text">{{ item.description }}</p>
-                <p class="card-text">{{ item.rating }}</p>
-              </div>
-          </div>
-        </div>
-      </ng-container>
-
       <ng-container *ngIf="filter === 'Todos'">
         <div class="col-md-4 m-2" style="width: 18rem">
           <div class="card">
             <div class="card-body">
-                <img src="{{ item.image }}" class="card-img-top" [alt]="item.name" />
+                <img src="{{ 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/' + item.poster_path }}" class="card-img-top" [alt]="item.name" />
                 {{ item.name }}
-                <h2 class="title">{{ item.name }}</h2>
-                <p class="card-text">{{ item.description }}</p>
-                <p class="card-text">{{ item.rating }}</p>
+                <h2 class="title">{{ item.title || item.name }}</h2>
+                <p class="card-text">{{ (item.overview)? (item.overview | slice:0:80)+'...':(item.overview) }}</p>
+                <p class="card-text">{{ calculatePercentaje(item.vote_average) | number : '1.2-2' }} %</p>
               </div>
           </div>
         </div>
       </ng-container>
     </ng-container>
+
+    <ng-container *ngFor="let item of movies">
+        <ng-container *ngIf="filter === 'Movie'">
+          <div class="col-md-4 m-2" style="width: 18rem">
+            <div class="card">
+              <div class="card-body">
+                  <img src="{{ 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/' + item.poster_path }}" class="card-img-top" [alt]="item.name" />
+                  {{ item.name }}
+                  <h2 class="title">{{ item.title || item.name }}</h2>
+                  <p class="card-text">{{ (item.overview)? (item.overview | slice:0:80)+'...':(item.overview) }}</p>
+                  <p class="card-text">{{ calculatePercentaje(item.vote_average) | number : '1.2-2' }} %</p>
+                </div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngFor="let item of series">
+        <ng-container *ngIf="filter === 'Serie'">
+          <div class="col-md-4 m-2" style="width: 18rem">
+            <div class="card">
+              <div class="card-body">
+                  <img src="{{ 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/' + item.poster_path }}" class="card-img-top" [alt]="item.name" />
+                  {{ item.name }}
+                  <h2 class="title">{{ item.title || item.name }}</h2>
+                  <p class="card-text">{{ (item.overview)? (item.overview | slice:0:80)+'...':(item.overview) }}</p>
+                  <p class="card-text">{{ calculatePercentaje(item.vote_average) | number : '1.2-2' }} %</p>
+                </div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
   </div>
