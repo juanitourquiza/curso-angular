@@ -87,7 +87,7 @@ export class InicioComponent {
   search(value: string) {
     this.movieResult = [];
     this.moviesSerie.forEach((data) => {
-      if (data.name.toLowerCase().includes(value.toLowerCase()))
+      if (data.title?.toLowerCase().includes(value?.toLowerCase()))
         this.movieResult.push(data);
     });
     if (!value) this.movieResult = this.moviesSerie;
