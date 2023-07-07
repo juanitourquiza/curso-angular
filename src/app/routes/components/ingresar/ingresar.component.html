@@ -1,1 +1,50 @@
-<p>ingresar works!</p>
+<section class="container-fluid">
+  <div class="row py-5">
+    <div class="col-6">
+      <div class="d-flex justify-content-center">
+        <img src="assets/Saly-11.png" alt="" />
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="d-flex justify-content-center flex-column">
+        <div class="text-center">
+          <h1>Ingresar</h1>
+        </div>
+        <form
+          (ngSubmit)="ingresarUsuario()"
+          [formGroup]="formularioDeIngreso"
+          class="formulario d-flex justify-content-center flex-column"
+        >
+          <input
+            formControlName="email"
+            class="form-control my-2"
+            type="email"
+            placeholder="Ingrese su email"
+          />
+          <span class="form-text text-danger" *ngIf="campoEsValido('email')">
+            El campo es requerido
+          </span>
+          <input
+            formControlName="password"
+            class="form-control my-2"
+            type="password"
+            placeholder="Ingrese su contraseña"
+          />
+          <span class="form-text text-danger" *ngIf="campoEsValido('password')">
+            La cantidad mínima de caracteres son 6
+          </span>
+          <button type="submit" class="btn btn-primary">Ingresar</button>
+        </form>
+        <button class="btn btn-secondary mt-4" (click)="registrarUsuario()">
+          Registrar
+        </button>
+      </div>
+      <hr class="mx-5" />
+      <div class="d-flex justify-content-center">
+        <button class="p-0 bg-white" (click)="ingresarUsuarioConGoogle()">
+          <img src="assets/button-google.png" alt="" />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

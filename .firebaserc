@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "pelisup-19f2a"
+  },
+  "targets": {
+    "pelisup-19f2a": {
+      "hosting": {
+        "app-angular": [
+          "pelisup-19f2a"
+        ]
+      }
+    }
+  }
+}
