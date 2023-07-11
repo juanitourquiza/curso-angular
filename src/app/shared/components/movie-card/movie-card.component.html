@@ -72,20 +72,22 @@
               {{ calculatePercentaje(item.vote_average) | number : "1.2-2" }} %
             </p>
           </div>
-          <button
-            *ngIf="estadoBoton"
-            class="btn btn-outline-success"
-            (click)="addMovie(item.id)"
-          >
-            Agregar a mi lista
-          </button>
-          <button
-            *ngIf="!estadoBoton"
-            class="btn btn-outline-danger"
-            (click)="deleteMovie(item.id)"
-          >
-            Eliminar de mi lista
-          </button>
+          <ng-container *ngIf="showButtons">
+            <button
+              *ngIf="estadoBoton"
+              class="btn btn-outline-success"
+              (click)="addMovie(item.id)"
+            >
+              Agregar a mi lista
+            </button>
+            <button
+              *ngIf="!estadoBoton"
+              class="btn btn-outline-danger"
+              (click)="deleteMovie(item.id)"
+            >
+              Eliminar de mi lista
+            </button>
+          </ng-container>
         </div>
       </div>
     </ng-container>
@@ -117,6 +119,22 @@
               {{ calculatePercentaje(item.vote_average) | number : "1.2-2" }} %
             </p>
           </div>
+          <ng-container *ngIf="showButtons">
+            <button
+              *ngIf="estadoBoton"
+              class="btn btn-outline-success"
+              (click)="addSerie(item.id)"
+            >
+              Agregar a mi lista
+            </button>
+            <button
+              *ngIf="!estadoBoton"
+              class="btn btn-outline-danger"
+              (click)="deleteSerie(item.id)"
+            >
+              Eliminar de mi lista
+            </button>
+          </ng-container>
         </div>
       </div>
     </ng-container>

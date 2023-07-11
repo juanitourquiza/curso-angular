@@ -11,7 +11,7 @@
       class="form-control"
       id="exampleFormControlInput1"
       placeholder="Buscar películas y series"
-      />
+    />
   </div>
 </section>
 <section class="my-5 mx-5">
@@ -21,7 +21,10 @@
         (AddMovie)="addMovieToFirebase($event)"
         (DeleteMovie)="deleteMovieFromFirebase($event)"
         [movies]="movies"
-        [filter]="filter"></app-movie-card>
+        [filter]="filter"
+        [showButtons]="true"
+      >
+      </app-movie-card>
     </div>
   </div>
 </section>

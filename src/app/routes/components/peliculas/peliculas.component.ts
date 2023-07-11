@@ -63,7 +63,6 @@ export class PeliculasComponent {
     }).catch((error) => {
       console.log(error);
     })
-
   }
 
   deleteMovieFromFirebase(id :number) {

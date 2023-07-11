@@ -18,6 +18,9 @@ export class MovieCardComponent {
   @Output() AddMovie = new EventEmitter<number>();
   @Output() DeleteMovie = new EventEmitter<number>();
 
+  @Output() AddSerie = new EventEmitter<number>();
+  @Output() DeleteSerie = new EventEmitter<number>();
+
   calculatePercentaje(number: number) {
     return (number / 10) * 100;
   }
@@ -28,6 +31,14 @@ export class MovieCardComponent {
 
   deleteMovie(number: number) {
     this.DeleteMovie.emit(number);
+  }
+
+  addSerie(number: number) {
+    this.AddSerie.emit(number);
+  }
+
+  deleteSerie(number: number) {
+    this.DeleteSerie.emit(number);
   }
 }
 
