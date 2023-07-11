@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './routes/components/dashboard/dashboard.component';
 import { IngresarComponent } from './routes/components/ingresar/ingresar.component';
 import { InicioComponent } from './routes/components/inicio/inicio.component';
 import { PeliculasComponent } from './routes/components/peliculas/peliculas.component';
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'ingresar',
     component: IngresarComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
   },
   {
     path: '**',

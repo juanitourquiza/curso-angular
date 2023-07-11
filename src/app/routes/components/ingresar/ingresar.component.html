@@ -8,7 +8,7 @@
     <div class="col-6">
       <div class="d-flex justify-content-center flex-column">
         <div class="text-center">
-          <h1>Ingresar</h1>
+          <h1 class="option-all">Ingresar</h1>
         </div>
         <form
           (ngSubmit)="ingresarUsuario()"
@@ -34,15 +34,16 @@
             La cantidad mínima de caracteres son 6
           </span>
           <button type="submit" class="btn btn-primary">Ingresar</button>
+          --- o ---
+          <button class="btn btn-secondary mt-4" (click)="registrarUsuario()">
+            Registrar
+          </button>
         </form>
-        <button class="btn btn-secondary mt-4" (click)="registrarUsuario()">
-          Registrar
-        </button>
       </div>
       <hr class="mx-5" />
       <div class="d-flex justify-content-center">
         <button class="p-0 bg-white" (click)="ingresarUsuarioConGoogle()">
-          <img src="assets/button-google.png" alt="" />
+          <img src="assets/button-google.png" alt="google" />
         </button>
       </div>
     </div>

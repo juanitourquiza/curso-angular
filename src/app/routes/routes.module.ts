@@ -6,6 +6,7 @@ import { SeriesComponent } from './components/series/series.component';
 import { IngresarComponent } from './components/ingresar/ingresar.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PeliculasComponent,
     SeriesComponent,
     IngresarComponent,
+    DashboardComponent,
   ],
   imports: [CommonModule, SharedModule, FormsModule, ReactiveFormsModule],
   exports: [

@@ -1,0 +1,23 @@
+<div class="container-fluid custom-bg">
+  <h1 class="option-all">Bienvenido</h1>
+  <div class="row">
+    <div class="col-6">
+      <div
+        (click)="redirectTo('peliculas')"
+        class="d-flex text-center flex-column custom-contador card"
+      >
+        <h4>{{ totalPeliculas }}</h4>
+        <p>Películas</p>
+      </div>
+    </div>
+    <div class="col-6">
+      <div
+        (click)="redirectTo('series')"
+        class="d-flex text-center flex-column custom-contador card"
+      >
+        <h4>00</h4>
+        <p>Series</p>
+      </div>
+    </div>
+  </div>
+</div>

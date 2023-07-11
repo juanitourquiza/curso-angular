@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MoviesSeries } from 'src/app/types/moviesSeries';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-movie-card',
@@ -12,8 +13,21 @@ export class MovieCardComponent {
   @Input() series: MoviesSeries [] | undefined;
   @Input() filter: string | undefined;
 
+  @Input() showButtons: boolean = false;
+  @Input() estadoBoton: boolean = true;
+  @Output() AddMovie = new EventEmitter<number>();
+  @Output() DeleteMovie = new EventEmitter<number>();
+
   calculatePercentaje(number: number) {
     return (number / 10) * 100;
+  }
+
+  addMovie(number: number) {
+    this.AddMovie.emit(number);
+  }
+
+  deleteMovie(number: number) {
+    this.DeleteMovie.emit(number);
   }
 }
 

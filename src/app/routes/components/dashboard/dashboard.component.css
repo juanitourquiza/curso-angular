@@ -1,0 +1,33 @@
+.custom-bg {
+  padding: 150px 200px;
+  background: rgb(34, 93, 195);
+  background: linear-gradient(
+    142deg,
+    rgba(34, 93, 195, 1) 0%,
+    rgba(38, 42, 52, 1) 100%
+  );
+  color: white;
+  margin-bottom: 50px;
+}
+
+.custom-contador {
+  color: rgb(34, 93, 195);
+  padding-top: 50px;
+  padding-bottom: 50px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.custom-contador h4 {
+  font-size: 40px;
+}
+
+.custom-contador p {
+  font-size: 25px;
+}
+
+.option-all {
+  color: #767e94;
+  font-size: 32px;
+  font-weight: 600;
+}

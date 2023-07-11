@@ -1,1 +1,27 @@
-<p>peliculas works!</p>
+<section class="my-5 mx-5">
+  <h1 class="option-all">Películas</h1>
+</section>
+<section class="my-3 mx-5">
+  <div class="mb-2 input-group">
+    <span class="input-group-text" id="inputGroupPrepend">
+      <i class="bi bi-search"></i>
+    </span>
+    <input
+      type="search"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="Buscar películas y series"
+      />
+  </div>
+</section>
+<section class="my-5 mx-5">
+  <div class="container">
+    <div class="row">
+      <app-movie-card
+        (AddMovie)="addMovieToFirebase($event)"
+        (DeleteMovie)="deleteMovieFromFirebase($event)"
+        [movies]="movies"
+        [filter]="filter"></app-movie-card>
+    </div>
+  </div>
+</section>

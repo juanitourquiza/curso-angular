@@ -1,0 +1,17 @@
+.input-group {
+  width: 350px;
+}
+
+.btn-selected {
+  background-color: blueviolet;
+  box-shadow: 5px 10px #888888;
+  transform: scale(1.2);
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.option-all {
+  color: #767e94;
+  font-size: 32px;
+  font-weight: 600;
+}
