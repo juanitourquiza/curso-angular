@@ -33,7 +33,7 @@ export class FirestoreService {
   }
 
   getSerie() {
-    const collectionSerieRef = collection(this.firestore, 'serie');
+    const collectionSerieRef = collection(this.firestore, 'series');
     return collectionData(collectionSerieRef, { idField: 'id'}) as Observable<Movie[]>;
   }
 

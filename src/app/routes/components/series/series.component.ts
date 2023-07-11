@@ -54,7 +54,7 @@ export class SeriesComponent {
     }
     !serieParaGuardar.name && delete serieParaGuardar.name;
     !serieParaGuardar.title && delete serieParaGuardar.title;
-    this._firestoreService.addMovie(serieParaGuardar).then((response) => {
+    this._firestoreService.addSerie(serieParaGuardar).then((response) => {
       console.log(response);
     }).catch((error) => {
       console.log(error);
@@ -71,7 +71,7 @@ export class SeriesComponent {
         console.log('RESPONSE', response);
         serieEncontrada = auxResponseSeries.find((value) => value.id_api === id);
         console.log('serieEncontrada', serieEncontrada);
-        this._firestoreService.deleteMovie(serieEncontrada!.id!).then((response) => {
+        this._firestoreService.deleteSerie(serieEncontrada!.id!).then((response) => {
           console.log(response);
           }).catch((error) => {
           console.log(error);
