@@ -13,8 +13,9 @@ export class FirestoreService {
   ) { }
 
   addMovie(data: Movie) {
+    const statusMovie: Movie = {...data, status: true}
     const collectionMovieRef = collection(this.firestore, 'movies');
-    return addDoc(collectionMovieRef, data).then((response) => {
+    return addDoc(collectionMovieRef, statusMovie).then((response) => {
       console.log('TODO OK', response);
     }).catch((error) => {
       console.log('ERROR', error);

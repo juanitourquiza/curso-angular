@@ -10,15 +10,9 @@ import { MoviesSeries } from 'src/app/types/moviesSeries';
   providers: [ FirestoreService ]
 })
 export class PeliculasComponent {
-
   movies: any[] = [];
-
-  moviesSerie: MoviesSeries[] = [];
-
-  movieResult: MoviesSeries[] = [];
-
+  moviesFirestore: any[] = [];
   toSearch: string = '';
-
   filter: string = 'Movie';
 
   constructor(
@@ -28,6 +22,7 @@ export class PeliculasComponent {
 
   ngOnInit(){
     this.getAllMovies();
+    this.getAllMoviesFirestore();
   }
 
   getAllMovies(){
@@ -35,12 +30,40 @@ export class PeliculasComponent {
       next: (response) => {
         this.movies = response.results;
         console.log('variable movies', this.movies);
+
+        // this._firestoreService.getMovie().subscribe({
+        //   next: (response) => {
+        //     this.moviesFirestore = response;
+        //     console.log('variable firestore', this.moviesFirestore);
+        //   },
+        //   error: (error) => {
+        //     console.log('ERROR', error);
+        //   },
+        //   complete() {
+        //     console.log('La ejecución terminó');
+        //   },
+        // })
       },
       error: (error) => {
         console.log('ERROR', error);
       },
       complete() {
-        console.log('La ejecuión terminó');
+        console.log('La ejecución terminó');
+      },
+    })
+  }
+
+  getAllMoviesFirestore(){
+    this._firestoreService.getMovie().subscribe({
+      next: (response) => {
+        this.moviesFirestore = response;
+        console.log('variable firestore', this.moviesFirestore);
+      },
+      error: (error) => {
+        console.log('ERROR', error);
+      },
+      complete() {
+        console.log('La ejecución terminó');
       },
     })
   }

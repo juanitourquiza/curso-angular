@@ -13,6 +13,7 @@ export interface Movie {
     media_type: string;
     vote_average:number;
     name?: string;
+    status?: boolean;
 }
 
 export interface MovieUser extends Movie {
